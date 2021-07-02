@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  db:
+    container_name: colabora_db
+    image: mongo:4.4.6-bionic
+    restart: always
+    env_file:
+      - "./.env"
+    volumes:
+      - "./db:/data/db"
+    ports:
+      - 27017:27017
+
+  backend:
+    depends_on:
+      - db
+    container_name: colabora_backend_app
+    image: node:16.3.0
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        cd /app
+        yarn install
+        yarn dev
+    volumes:
+      - ./backend:/app
+    env_file:
+      - "./.env.local"
+    ports:
+      - 3030:3030
+
+  frontend:
+    container_name: colabora_frontend_app
+    image: node:16.3.0
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        cd /app
+        yarn install
+        yarn dev
+    volumes:
+      - ./frontend:/app
+    environment:
+      - PORT=3000
+    ports:
+      - 3000:3000

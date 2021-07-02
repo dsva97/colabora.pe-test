@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  db:
+    container_name: colabora_db
+    image: mongo:4.4.6-bionic
+    restart: always
+    env_file:
+      - "./.env"
+    volumes:
+      - "./db:/data/db"
+    ports:
+      - 27017:27017
+
+  app:
+    depends_on:
+      - db
+    container_name: colabora_app
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - yarn start
+    build: .
+    env_file:
+      - "./.env"
+    ports:
+      - 3040:80
