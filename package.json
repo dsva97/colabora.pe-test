@@ -1,0 +1,30 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "16.3.0",
+    "yarn": "1.22.10"
+  },
+  "scripts": {
+    "serve": "node builder/server.js",
+    "dev": "node builder"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "esbuild": "^0.12.14",
+    "esbuild-css-modules-plugin": "^1.0.6",
+    "express": "^4.17.1",
+    "live-reload": "^1.1.0",
+    "livereload": "^0.9.3",
+    "nodemon": "^2.0.9"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
+    "reload": "^3.2.0"
+  }
+}

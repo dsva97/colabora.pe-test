@@ -1,0 +1,31 @@
+.header {
+  box-shadow: 0 8px 32px 0 rgba(var(--color-dark-blue-rgb), 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  padding: var(--padding-y) var(--padding-x);
+  height: auto;
+
+  position: -webkit-sticky;
+  position: sticky;
+
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header a {
+  color: var(--blue);
+}
+.header > a:hover {
+  color: var(--sky);
+  letter-spacing: 0.2em;
+}
+
+.header > a {
+  transition: all var(--transition-time);
+}
